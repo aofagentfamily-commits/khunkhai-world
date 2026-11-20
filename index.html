@@ -25,11 +25,12 @@
   <header class="topbar"><div class="brand"><span class="brand-spark">✿</span><span>โลกของคุณไข่</span></div><button id="fullscreenBtn" class="round" aria-label="เต็มหน้าจอ" title="เต็มหน้าจอ">⛶</button></header>
   <section class="headline"><div class="eyebrow">MY LITTLE COZY WORLD</div><div id="clock" class="clock">--:--</div><div id="date" class="date"></div><p>เกาะเล็ก ๆ ที่มีความสุขของเรา ♡</p></section>
   <nav class="toolbar" aria-label="เครื่องมือ"><button data-tab="weather" class="tool active">🌤️ <span>บรรยากาศ</span></button><button data-tab="sounds" class="tool">🎧 <span>เสียงธรรมชาติ</span></button><button data-tab="decorate" class="tool">🌷 <span>ตกแต่ง</span></button><button id="muteBtn" class="tool">▶ <span>เริ่มเสียง</span></button></nav>
-  <aside id="panel" class="panel" aria-label="ตั้งค่า"><div class="panel-heading"><strong id="panelTitle">บรรยากาศ</strong><button id="closeBtn" class="round small" aria-label="ปิดเมนู">×</button></div>
+  <aside id="panel" class="panel" aria-label="ตั้งค่า"><div class="panel-heading"><strong id="panelTitle">บรรยากาศ</strong><button id="closeBtn" class="round small" aria-label="ซ่อนเมนู" title="ซ่อนเมนู">‹</button></div>
     <div class="tab-content" data-panel="weather"><p class="hint">เลือกช่วงเวลาของเกาะ</p><div class="choice-group"><button class="choice" data-time="morning">☀️ เช้า</button><button class="choice selected" data-time="sunset">🌅 เย็น</button><button class="choice" data-time="night">🌙 กลางคืน</button></div><label class="switch-row"><span>🌧️ ฝนตกในฉาก</span><input id="rainToggle" type="checkbox"/></label></div>
     <div class="tab-content hidden" data-panel="sounds"><p class="hint">กด “เริ่มเสียง” ก่อน แล้วเลื่อนปรับแต่ละเสียงได้</p><div id="mixer"></div><p class="small-note">เสียงสังเคราะห์ด้วย Web Audio ไม่ใช้ไฟล์เพลงหรือบริการเสียเงิน</p></div>
     <div class="tab-content hidden" data-panel="decorate"><p class="hint">เปิดโหมดจัดวาง แล้วลากสิ่งของไปบนเกาะ</p><label class="switch-row"><span>🖐️ โหมดลากของตกแต่ง</span><input id="editToggle" type="checkbox"/></label><button id="resetDecor" class="secondary">วางของกลับตำแหน่งเดิม</button><p class="small-note">ตำแหน่งจะบันทึกในเครื่องนี้อัตโนมัติ</p></div>
   </aside>
+  <button id="panelToggle" class="panel-toggle" aria-label="เปิดเมนูตั้งค่า" title="เปิดเมนูตั้งค่า" aria-expanded="true">⚙</button>
   <div class="footer-note">สร้างด้วยความรักให้โลกใบเล็กของคุณไข่ ♡</div>
   <div id="rain" aria-hidden="true"></div>
 </main><script src="./app.js"></script></body></html>

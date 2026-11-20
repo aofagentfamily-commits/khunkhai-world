@@ -1,6 +1,6 @@
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const KEY='khunkhai-world-v1';
-const defaults={time:'sunset',rain:false,volumes:{wind:36,rain:0,ocean:32,birds:15},positions:{}};
+const defaults={time:'sunset',rain:false,panelCollapsed:false,volumes:{wind:36,rain:0,ocean:32,birds:15},positions:{}};
 let saved={};try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')}catch{}
 const state={...defaults,...saved,volumes:{...defaults.volumes,...saved.volumes},positions:{...defaults.positions,...saved.positions}};
 const persist=()=>localStorage.setItem(KEY,JSON.stringify(state));
@@ -17,8 +17,20 @@ function startAudio(){if(audio){audio.ctx.resume();playing=true;updateAudio();re
 function updateAudio(){if(!audio)return;const {ctx,tracks}=audio;tracks.rain.gain.gain.setTargetAtTime(playing?(state.volumes.rain/100)*.10:0,ctx.currentTime,.15);if(!playing){Object.values(tracks).forEach(t=>t.gain.gain.setTargetAtTime(0,ctx.currentTime,.1))}$('#muteBtn').innerHTML=playing?'Ⅱ <span>หยุดเสียง</span>':'▶ <span>เริ่มเสียง</span>'}
 $('#muteBtn').addEventListener('click',()=>{if(!playing)startAudio();else{playing=false;updateAudio()}});
 const titles={weather:'บรรยากาศ',sounds:'เสียงธรรมชาติ',decorate:'ตกแต่งโลก'};
-function showTab(tab){$$('[data-panel]').forEach(e=>e.classList.toggle('hidden',e.dataset.panel!==tab));$$('[data-tab]').forEach(e=>e.classList.toggle('active',e.dataset.tab===tab));$('#panelTitle').textContent=titles[tab];$('#panel').classList.remove('hidden')}
-$$('[data-tab]').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));$('#closeBtn').addEventListener('click',()=>$('#panel').classList.add('hidden'));
+function showTab(tab){$$('[data-panel]').forEach(e=>e.classList.toggle('hidden',e.dataset.panel!==tab));$$('[data-tab]').forEach(e=>e.classList.toggle('active',e.dataset.tab===tab));$('#panelTitle').textContent=titles[tab];setPanelCollapsed(false)}
+function setPanelCollapsed(collapsed){
+ state.panelCollapsed=!!collapsed;
+ $('#panel').classList.toggle('collapsed',state.panelCollapsed);
+ $('#panel').setAttribute('aria-hidden',String(state.panelCollapsed));
+ $('#panel').inert=state.panelCollapsed;
+ $('#panelToggle').classList.toggle('show',state.panelCollapsed);
+ $('#panelToggle').setAttribute('aria-expanded',String(!state.panelCollapsed));
+ persist();
+}
+$$('[data-tab]').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+$('#closeBtn').addEventListener('click',()=>setPanelCollapsed(true));
+$('#panelToggle').addEventListener('click',()=>setPanelCollapsed(false));
+setPanelCollapsed(state.panelCollapsed);
 $('#fullscreenBtn').addEventListener('click',()=>{if(document.fullscreenElement)document.exitFullscreen?.();else document.documentElement.requestFullscreen?.()});
 const island=$('.island');function applyPositions(){$$('.movable').forEach(el=>{const p=state.positions[el.dataset.key];if(p){el.style.setProperty('--x',p.x+'%');el.style.setProperty('--y',p.y+'%')}})}applyPositions();
 $('#editToggle').addEventListener('change',e=>$('#scene').classList.toggle('editing',e.target.checked));
