@@ -30,3 +30,45 @@ body.is-mini .container{max-width:840px}.mini-intro .lead{display:none}.mega{pos
 .header-actions{background:#ffffffa8;border-radius:18px;padding:4px}.icon-btn{background:transparent;box-shadow:none}.score-card{max-width:710px}
 @media(max-width:600px){.illustrated-header{height:clamp(92px,26vw,158px)}body.is-mini .illustrated-header{height:clamp(83px,21vw,138px)}.header{position:absolute;top:4px;right:1px;padding:3px}.header-actions{background:#fff8}.icon-btn{width:33px;height:33px;font-size:17px}.hero{padding:5px 12px 15px}.hero p{font-size:11px}.container{padding:0 12px 35px}.view{border-radius:24px;padding:15px}.intro-illustration{border-radius:18px}.name-row{gap:8px}.avatar{width:46px;height:46px;flex-basis:46px;font-size:22px}.round-field{margin-left:0}.field{font-size:14px;padding:12px}.label-field{font-size:12px}.btn.full{font-size:14px;padding:14px}.mini-grid{gap:8px}.mini-tile{border-radius:19px}.mega{min-height:57px}.mega .arrow{right:14px}.app:after{height:150px}.section-title{font-size:23px}}
 @media(prefers-reduced-motion:reduce){.mini-tile{transition:none}}
+
+/* LOVE MATCH V4: match approved two mockups while retaining functioning controls */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.art-button{display:block;width:100%;border:0;background:transparent center/100% 100% no-repeat;cursor:pointer;transition:transform .17s ease,filter .2s ease;filter:drop-shadow(0 6px 9px #c57ca047)}
+.art-button:hover{transform:translateY(-3px);filter:brightness(1.03) drop-shadow(0 11px 13px #b86caf55)}
+.art-button:active{transform:translateY(2px) scale(.99)}
+.art-button:focus-visible{outline:3px solid #9b51d5;outline-offset:5px}
+.art-start{background-image:url('./assets/btn-home-start.webp');aspect-ratio:1336/192;max-width:700px;margin:23px auto 0}
+.art-mini{background-image:url('./assets/btn-home-mini.webp');aspect-ratio:1336/215;max-width:700px;margin:5px auto 0}
+.art-toolbar{max-width:700px;margin:7px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.art-add{background-image:url('./assets/btn-home-add.webp');aspect-ratio:532/190}
+.art-penalty{background-image:url('./assets/btn-home-penalty.webp');aspect-ratio:554/190}
+body.is-quiz-round .hero{display:none}
+body.is-quiz-round .illustrated-header{display:none}
+body.is-quiz-round .container{max-width:1060px;padding:14px 20px 45px}
+body.is-quiz-round .view{padding:clamp(20px,4vw,48px);border-radius:46px;background:linear-gradient(150deg,#fffafe,#fff7ff 65%,#fdf4ff);border:3px solid #fff;box-shadow:0 10px 38px #a976ad2a}
+body.is-quiz-round .score-card{margin-top:5px}
+.quiz-topper{text-align:center;margin-bottom:12px}
+.quiz-topper .step{margin:0 auto 16px}
+.quiz-topper>.kicker{display:block;font-size:clamp(12px,1.5vw,18px);font-weight:800;letter-spacing:.23em;color:#a66b9b}
+.quiz-character-row{display:grid;grid-template-columns:minmax(95px,1fr) minmax(0,3.2fr) minmax(95px,1fr);align-items:center;gap:6px;margin:0 auto}
+.quiz-character{display:block;width:100%;max-width:210px;object-fit:contain;filter:drop-shadow(0 7px 6px #c68dad30)}
+.quiz-girl{justify-self:start}.quiz-boy{justify-self:end}
+.quiz-top-titles .section-title{font-size:clamp(21px,4.2vw,43px);margin:0;color:#a04591;text-shadow:2px 3px 0 #fff,0 5px 6px #d69ec7}
+.quiz-ribbon{border:2px solid #f9bbdc;background:linear-gradient(100deg,#fff0fa,#ffe3f1,#fff1fa);color:#a3659b;padding:9px 11px;border-radius:14px;box-shadow:0 5px 9px #d09ab633;font-size:clamp(11px,2vw,17px);font-weight:700;margin:15px 0 0}
+body.is-quiz-round .question-box{position:relative;text-align:center;background:linear-gradient(120deg,#ffe7f6 0%,#ead9ff 100%);border:2px solid #f5cde7;border-radius:29px;box-shadow:inset 0 3px 12px #fff8;max-width:none;margin:22px 0 18px;padding:30px 22px 20px}
+body.is-quiz-round .question-box .question-label{position:absolute;top:-19px;left:50%;transform:translateX(-50%);white-space:nowrap;background:linear-gradient(110deg,#ffe6f5,#fff8ff);color:#99528f;border:2px solid #fac6e4;border-radius:30px;box-shadow:0 4px 10px #c784b53c;font-size:clamp(12px,2vw,17px);padding:8px 21px;font-weight:800}
+body.is-quiz-round .question-box h2{margin:10px 0 0;font-weight:800;font-size:clamp(19px,2.7vw,29px);color:#8c4c89;text-shadow:1px 2px #fff}
+.illustrated-choices{gap:14px;margin:16px 0 24px}
+.illustrated-choices .choice-card{min-height:115px;display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 14px;background:linear-gradient(145deg,#fffdfd,#fff2fc);border:2px solid #efc5df;border-radius:28px;box-shadow:0 6px 11px #d9a0c22b;flex-direction:row;transition:transform .17s,border-color .17s,background .17s}
+.illustrated-choices .choice-card:hover{transform:translateY(-2px)}
+.illustrated-choices .choice-card.selected{background:linear-gradient(145deg,#ffe2f3,#f3d8ff);border:3px solid #e77ebe;box-shadow:0 5px 14px #da85ba55}
+.illustrated-choices .choice-card .illustration{display:grid;place-items:center;width:clamp(78px,11vw,140px);height:clamp(74px,10vw,116px);flex:0 0 auto}
+.illustrated-choices .choice-card .illustration .choice-illustration{width:100%;height:100%;object-fit:contain}
+.illustrated-choices .choice-card .illustrated-symbol{display:grid;place-items:center;width:100%;height:100%;overflow:hidden}
+.illustrated-symbol img{width:100%;height:100%;object-fit:contain}
+.illustrated-symbol svg{width:80%;max-height:100%}
+.illustrated-choices .choice-card .label{font-size:clamp(16px,2.2vw,24px);font-weight:800;color:#8f4d86}
+.quiz-lock{display:flex;align-items:center;justify-content:center;gap:13px;max-width:880px;margin:22px auto 4px!important;padding:21px 17px!important;border-radius:48px!important;font-size:clamp(15px,2.3vw,24px)!important;box-shadow:0 10px 22px #cc79c655!important}
+.quiz-lock svg{width:24px;height:24px}.quiz-lock span{font-size:36px;margin-left:12px;line-height:.6}
+.quiz-lock:disabled{opacity:.65;cursor:not-allowed}
+@media(max-width:620px){body.is-quiz-round .container{padding:8px 11px 24px}body.is-quiz-round .view{border-radius:25px;padding:17px 12px}.quiz-character-row{grid-template-columns:60px minmax(0,1fr) 60px;gap:2px}.quiz-top-titles .section-title{font-size:clamp(17px,5vw,26px)}.quiz-ribbon{padding:7px 4px;font-size:11px;margin-top:8px}.quiz-character{width:72px}.illustrated-choices{gap:9px}.illustrated-choices .choice-card{flex-direction:column;gap:1px;min-height:120px;padding:7px}.illustrated-choices .choice-card .illustration{width:min(28vw,110px);height:72px}.illustrated-choices .choice-card .label{font-size:14px}.quiz-lock{padding:15px 8px!important;gap:6px}.quiz-lock svg{width:19px;height:19px}.quiz-lock span{font-size:22px;margin-left:1px}.art-toolbar{gap:4px}}
